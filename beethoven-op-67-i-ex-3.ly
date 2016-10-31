@@ -28,10 +28,9 @@ right = \relative c'' {
   \setAnalysisBracket #blue
   <<
      { \once \override TextScript.transparent = ##t
-       s2 ^\markup {squirrels} s2 r8 es [es es] c2 } \\
+       s2 ^\markup {squirrels} _\markup {squirrels}  s2 r8 es [es es] c2 } \\
      { s2 bes8\rest \stemUp aes [aes aes] \stemDown g2 ~ g2 } \\
-     { \once \override TextScript.transparent = ##t
-       \stemUp bes8\rest _\markup {squirrels} g \p [g g] \stemDown \tieDown es2 ~  es2 es2 }
+     { \stemUp bes8\rest g \p [g g] \stemDown \tieDown es2 ~  es2 es2 }
   >>
   \stopStaff
   s2
