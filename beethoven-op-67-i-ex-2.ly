@@ -26,9 +26,25 @@ right = \relative c'' {
   \global
   \setAnalysisBracket #blue
   \override HorizontalBracket.padding = #2.0
-  r8 g8 \startGroup \ff [g g] | es2 \fermata \stopGroup
+  \once \override TextScript.transparent = ##t
+  r8 ^\markup {X} _\markup {Y} g8 \startGroup \ff [g g] | es2 \fermata \stopGroup
   r8 f \startGroup [f f] | d2 \stopGroup ~ d2 \fermata
+  \stopStaff
+  s2
 }
 
 
-\include "../template-2.ly"
+\score {
+  <<
+    \new Staff = "right" \with {
+      midiInstrument = "acoustic grand"
+      %\remove Time_signature_engraver
+      instrumentName = " "
+    } \right
+  >>
+
+  \layout { }
+  \midi {
+    \tempo 2=100
+  }
+}

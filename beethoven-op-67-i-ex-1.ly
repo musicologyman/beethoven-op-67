@@ -9,16 +9,6 @@
   evenFooterMarkup = ""
 }
 
-%#(set-global-staff-size 15)
-
-%{
-#(set! paper-alist (cons '("my size" . (cons (* 7 in) (* 3 in))) paper-alist))
-
-\paper {
-  #(set-paper-size "my size" )
-}
-%}
-
 \layout {
   \context {
     \Staff
@@ -33,8 +23,24 @@ global = {
 
 right = \relative c'' {
   \global
-  r8 g \ff [g g] | es2 \fermata
+  \once \override TextScript.transparent = ##t
+  r8 ^\markup {X} _\markup {X} g \ff [g g] | es2 \fermata
+  \stopStaff
+  \s2
 }
 
 
-\include "../template-2.ly"
+\score {
+  <<
+    \new Staff = "right" \with {
+      midiInstrument = "acoustic grand"
+      %\remove Time_signature_engraver
+      instrumentName = " "
+    } \right
+  >>
+
+  \layout { }
+  \midi {
+    \tempo 2=100
+  }
+}
