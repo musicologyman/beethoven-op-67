@@ -1,0 +1,10 @@
+*.DS_Store
+*.count
+*.eps
+*.midi
+*.pdf
+*.png
+*.sample
+*.swp
+*.tex
+*.texi
