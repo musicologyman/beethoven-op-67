@@ -1,13 +1,9 @@
 \include "../template-1.ly"
 
-\paper {
-  indent = 0\mm
-  line-width = 110\mm
-  oddHeaderMarkup = ""
-  evenHeaderMarkup = ""
-  oddFooterMarkup = ""
-  evenFooterMarkup = ""
-}
+#(set! paper-alist (cons '("my size" . (cons (* 2 in) (* .75 in))) paper-alist))
+
+%#(set-global-staff-size 11)
+
 
 \layout {
   \context {
@@ -27,10 +23,17 @@ right = \relative c'' {
   \global
   \setAnalysisBracket #blue
   <<
-     { \once \override TextScript.transparent = ##t
-       s2 ^\markup {squirrels} _\markup {squirrels}  s2 r8 es [es es] c2 } \\
-     { s2 bes8\rest \stemUp aes [aes aes] \stemDown g2 ~ g2 } \\
-     { \stemUp bes8\rest g \p [g g] \stemDown \tieDown es2 ~  es2 es2 }
+     \colorNotes #(rgb-color 1 0 1)
+     { \override TextScript.transparent = ##t
+       s2 ^\markup {squirrels} _\markup {squirrels}  s2 r8 es [es es] c2 s2 * 2
+       r8 f ^\markup {X} [f f] d2 } \\
+     \colorNotes #blue
+     { s2 bes8\rest \stemUp aes [aes aes] \stemDown g2 s
+       s bes8\rest \stemUp aes [aes aes] \stemDown g2 s } \\
+     \colorNotes #(rgb-color 1 0 0)
+     { \stemDown bes8\rest g \p [g g] es2 s2 * 2
+       bes'8\rest g [g g] d2 s2 * 2}
+
   >>
   \stopStaff
   s2
@@ -47,6 +50,6 @@ right = \relative c'' {
 
   \layout { }
   \midi {
-    \tempo 2=100
+    \tempo 2=80
   }
 }

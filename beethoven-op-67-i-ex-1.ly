@@ -1,13 +1,9 @@
 \include "../template-1.ly"
 
-\paper {
-  indent = 0\mm
-  line-width = 110\mm
-  oddHeaderMarkup = ""
-  evenHeaderMarkup = ""
-  oddFooterMarkup = ""
-  evenFooterMarkup = ""
-}
+#(set! paper-alist (cons '("my size" . (cons (* 2 in) (* .75 in))) paper-alist))
+
+%#(set-global-staff-size 11)
+
 
 \layout {
   \context {
@@ -41,6 +37,6 @@ right = \relative c'' {
 
   \layout { }
   \midi {
-    \tempo 2=100
+    \tempo 2=80
   }
 }
