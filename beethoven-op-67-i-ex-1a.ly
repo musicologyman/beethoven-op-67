@@ -46,7 +46,7 @@ excerpt = \relative c'' {
 
 \score {
   <<
-    \new Staff = \with {
+    \new Staff \with {
       midiInstrument = "acoustic grand"
     } \excerpt
   >>
