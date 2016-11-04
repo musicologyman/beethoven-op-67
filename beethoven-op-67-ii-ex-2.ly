@@ -15,16 +15,6 @@
   }
 }
 
-circle =
-  \once \override NoteHead.stencil = #(lambda (grob)
-                                      (let* ((note (ly:note-head::print grob))
-                                             (combo-stencil (ly:stencil-add
-                                                             note
-                                                             (circle-stencil note 0.1 0.8))))
-                                        (ly:make-stencil (ly:stencil-expr combo-stencil)
-                                          (ly:stencil-extent note X)
-                                          (ly:stencil-extent note Y))))
-
 global = {
   \key aes \major
   \time 3/8
@@ -45,12 +35,11 @@ right = \relative c' {
   aes8 \! \> \stopGroup r8
     \once \override TextScript.outside-staff-priority = #1000
     \tuplet 3/2  { g,16 \f \startGroup ^\markup \italic "violins" ([aes bes]) }
-    
+
   \override NoteColumn.ignore-collision = ##t
   <<
     aes16 \stopGroup s16 s4
     \new Voice \with {
-         \consists "Horizontal_bracket_engraver"
          \override HorizontalBracket.color = #(rgb-color 0 0 0.6)
          \override HorizontalBracket.thickness = #3.0
          \override HorizontalBracket.bracket-flare = #'(0.0 . 0.0)
@@ -58,7 +47,6 @@ right = \relative c' {
          \override HorizontalBracket.outside-staff-priority = #300
          } { aes16 \startGroup r aes \p r aes r aes8 \stopGroup}
   >>
-  \oneVoice 
 
 }
 
