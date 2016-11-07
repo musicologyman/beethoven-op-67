@@ -65,7 +65,7 @@ right = \relative c''' {
       g }
   >>
   \override TextScript.transparent = ##t
-  g'8 \f ^\markup {X} _\markup {X}  [g f]
+  g'8 \f [g f]
   es4 r
   c r
   g'2 \fermata

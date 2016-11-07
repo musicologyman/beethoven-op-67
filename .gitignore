@@ -8,3 +8,5 @@
 *.swp
 *.tex
 *.texi
+*.sh
+/png-temp
