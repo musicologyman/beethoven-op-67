@@ -1,6 +1,6 @@
-\include "../template-1.ly"
+\include "../../template-1.ly"
 
-#(set! paper-alist (cons '("my size" . (cons (* 6.5 in) (* 2.5 in))) paper-alist))
+#(set! paper-alist (cons '("my size" . (cons (* 7 in) (* 2 in))) paper-alist))
 
 %#(set-global-staff-size 11)
 
@@ -31,46 +31,52 @@ global = {
 
 }
 
-right = \relative c''' {
+right = \relative c'' {
   \global
   \setAnalysisBracket #blue
   \set Timing.beamExceptions = #'()
   \set Timing.baseMoment = #(ly:make-moment 1/2)
   \set Timing.beatStructure = #'(2)
+  \partial 4.
   <<
-    \colorNotes #(rgb-color 0 0.6 0)
-    { \override TextScript.transparent = ##t
-      bes,8\rest ^\markup {squirrels} g' g
-      \revert TextScript.transparent
-      \once \override TextScript.rotation = #'(45 0 0)
-      \once \override TextScript.color = #(rgb-color 0 0.6 0)
-      \once \override TextScript.Y-offset = #12
-      \once \override TextScript.X-offset = #-1
-      \circle f ^\markup { \center-column { \italic { "fill in" "the pitch!" } } }
-      es2
-      (d8) g g f
-      es2
-      (d8)
-    } \\
-    \colorNotes #(rgb-color 0 0 0.6)
-    { s2
-      r8 es, es
-      \once \override TextScript.rotation = #'(-45 0 0)
-      \once \override TextScript.color = #(rgb-color 0 0 0.6)
-      \once \override TextScript.Y-offset = #-7
-      \once \override TextScript.X-offset = #-1
-        \circle f _\markup { \center-column { \italic { "fill in" "the pitch!" } } }
-      g2 ~
-      g8 es [es f]
-      g }
-  >>
-  \override TextScript.transparent = ##t
-  g'8 \f [g f]
-  es4 r
-  c r
-  g'2 \fermata
-  \stopStaff
-  s2
+     {
+     \override TextScript.outside-staff-priority = #1000
+     s4. ^\markup \italic "(sounds an octave higher than written)" }
+     \\
+     {
+     \colorNotes #(rgb-color 0 0.6 0)
+     {
+       \greenText
+       \once \override TextScript.X-offset = #-8.0
+         g8 \p _\markup \italic {violins} g a
+       bes4 s
+       s8 fis a bes
+       c4 s4
+       s8 fis,8 a bes
+       c4 s4
+       s8 g bes c
+       d4 s }
+       s8 \blackText g, _\markup \italic "cresc." bes c
+     }
+     \\
+     \colorNotes #(rgb-color 0 0 0.8)
+      { s4.
+       s8 \blueText g ^\markup \italic "woodwinds" a bes
+       c4 s
+       s8 fis, a bes
+       c4 s
+       s8 a bes c
+       d4 s
+       s8 g, bes c
+       d4 s
+     }
+     >>
+     d8 bes c d
+     es \f es es es
+     es es es es
+     es4 r
+
+
 }
 
 \score {

@@ -1,4 +1,4 @@
-\include "../template-1.ly"
+\include "../../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 6 in) (* 1 in))) paper-alist))
 
@@ -30,17 +30,18 @@ right = \relative c' {
   aes'16 \p ^\markup \italic {violins} (c es)
   es (des) c8. [c16]
   c \cresc (bes) aes8. [aes16]
-  g4 \f \tuplet 3/2 {g16 \startGroup (aes bes) }
-  aes8 \p \stopGroup r \tuplet 3/2 {g'16 \< \startGroup ^\markup \italic "flute" (aes bes)}
-  aes8 \! \> \stopGroup r8
+  g4 \f \tuplet 3/2 {g16 (aes bes) }
+  aes8 \p r \tuplet 3/2 {g'16 \< ^\markup \italic "flute" (aes bes)}
+  aes8 \! \> r8
     \once \override TextScript.outside-staff-priority = #1000
-    \tuplet 3/2  { g,16 \f \startGroup ^\markup \italic "violins" ([aes bes]) }
+    \tuplet 3/2  { g,16 \f ^\markup \italic "violins" ([aes bes]) }
 
   \override NoteColumn.ignore-collision = ##t
   <<
-    aes16 \stopGroup s16 s4
+    aes16 s16 s4
     \new Voice \with {
-         \override HorizontalBracket.color = #(rgb-color 0 0 0.6)
+         \override HorizontalBracket.transparent = ##t
+         %\override HorizontalBracket.color = #(rgb-color 0 0 0.6)
          \override HorizontalBracket.thickness = #3.0
          \override HorizontalBracket.bracket-flare = #'(0.0 . 0.0)
          \override HorizontalBracket.padding = #1.0

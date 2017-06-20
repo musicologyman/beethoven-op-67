@@ -1,4 +1,4 @@
-include "./template-1.ly"
+\include "template-1.ly"
 
 #(set-global-staff-size 15)
 
@@ -17,8 +17,8 @@ include "./template-1.ly"
 }
 
 global = {
-  \key c \minor
-  \time 2/4
+  \key a \major
+  \time 4/4
 }
 
 right = \relative c''' {
@@ -28,4 +28,4 @@ right = \relative c''' {
 }
 
 
-\include "./template-2.ly"
+\include "template-2.ly"

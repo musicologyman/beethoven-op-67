@@ -1,6 +1,6 @@
-\include "../template-1.ly"
+\include "../../template-1.ly"
 
-#(set! paper-alist (cons '("my size" . (cons (* 7 in) (* 1 in))) paper-alist))
+#(set! paper-alist (cons '("my size" . (cons (* 7 in) (* 1.5 in))) paper-alist))
 
 #(set-global-staff-size 15)
 
@@ -28,6 +28,7 @@ circle =
 global = {
   \key aes \major
   \time 3/8
+  \partial 8
 }
 
 right = \relative c {
@@ -36,18 +37,19 @@ right = \relative c {
   \setAnalysisBracket #blue
   \set Timing.beamExceptions = #'()
   \set Timing.baseMoment = #(ly:make-moment 1/8)
-  \set Timing.beatStructure = #'(3)
-  \partial 8
-  es16. \p _\markup \italic { dolce } ^\markup \italic { violas and cellos } (aes32)
-  c8-. c16. (bes32 aes16. c32)
-  f,8 ~ f16. [(a32 bes16. c32)]
-  des16. (c32 bes16. des32 g,16. bes32)
-  e,16. (g32) c8 ~ [(c16. bes32)]
-  a16. (f32) bes8. [(des16)]
-  g,16. (es32) aes!8 [aes16. (c32)]
-  es4. \f
-  c8 \p
-
+  \set Timing.beatStructure = #'(1 1 1)
+  \once \override TextScript.X-offset = #2.5
+  \once \override TextScript.padding = #1
+  es32 \p _\markup \italic { dolce } ^\markup \italic { violas and cellos } 
+    (g aes bes)
+  c (bes aes g aes bes aes g aes bes c aes)
+  f (g f e f a bes a bes c des c)
+  des (c des c bes des aes! des g, des' f, des')
+  e, (g a b c g a b c g c bes)
+  a (c f, c' bes des f, des' bes des aes! des)
+  g, (bes es, bes' aes c es, c' aes c es, c')
+  g \pp (es' bes es g, es' bes es g, es' bes es)
+  c8 s16 \bar " "
 }
 
 \score {
@@ -61,6 +63,6 @@ right = \relative c {
 
   \layout { }
   \midi {
-    \tempo 2=80
+    \tempo 8=110
   }
 }

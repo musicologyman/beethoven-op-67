@@ -1,8 +1,8 @@
-\include "../template-1.ly"
+\include "../../template-1.ly"
 
-#(set! paper-alist (cons '("my size" . (cons (* 3 in) (* 1.25 in))) paper-alist))
+#(set! paper-alist (cons '("my size" . (cons (* 6 in) (* 3 in))) paper-alist))
 
-%#(set-global-staff-size 11)
+#(set-global-staff-size 15)
 
 \paper {
   #(set-paper-size "my size" )
@@ -26,33 +26,60 @@ circle =
                                           (ly:stencil-extent note Y))))
 
 global = {
-  \key c \minor
-  \time 2/4
-
+  \key c \major
+  \time 3/4
+  \partial 4
 }
 
-right = \relative c''' {
+right = \relative c {
+  \clef bass
   \global
   \setAnalysisBracket #blue
   \set Timing.beamExceptions = #'()
-  \set Timing.baseMoment = #(ly:make-moment 1/2)
-  \set Timing.beatStructure = #'(2)
-  << { r8 ^\markup \italic { right side up } g g f es2 s2 } \\
-     { s2 r8 _\markup \italic {upside down } es, es f g2 } >>
-  
+  \set Timing.baseMoment = #(ly:make-moment 1/4)
+  \set Timing.beatStructure = #'(3)
+  c4 \f ^\markup \italic { cellos and basses }
+  b8 c d g, a b
+  c b c d e f
+  g2 f4
+  e c a'
+  f d b' \break
+  \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+            #'((Y-offset . 20))
+  g e
+  << { c'
+       a d c
+       b g e
+       fis d fis
+       g e gis
+       a f! a
+       b g }
+     \new Staff \with {
+       alignAboveContext = #"right"
+     }{
+      \clef bass
+      \once \override TextScript.padding = #2.0
+      a4 \f ^\markup \italic { violas and bassoons }
+      fis8 g a d, e fis
+      g fis g a b cis
+      d2 c!4
+      b g e'
+      c a f'!
+      d b
+  } >>
 }
 
 \score {
+  \new StaffGroup
   <<
     \new Staff = "right" \with {
       midiInstrument = "acoustic grand"
-      %\remove Time_signature_engraver
       instrumentName = " "
     } \right
   >>
 
   \layout { }
   \midi {
-    \tempo 2=80
+    \tempo 2.=80
   }
 }

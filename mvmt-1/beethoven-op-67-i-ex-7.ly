@@ -1,6 +1,6 @@
-\include "../template-1.ly"
+\include "../../template-1.ly"
 
-#(set! paper-alist (cons '("my size" . (cons (* 7 in) (* 2 in))) paper-alist))
+#(set! paper-alist (cons '("my size" . (cons (* 3 in) (* 1.25 in))) paper-alist))
 
 %#(set-global-staff-size 11)
 
@@ -31,52 +31,15 @@ global = {
 
 }
 
-right = \relative c'' {
+right = \relative c''' {
   \global
   \setAnalysisBracket #blue
   \set Timing.beamExceptions = #'()
   \set Timing.baseMoment = #(ly:make-moment 1/2)
   \set Timing.beatStructure = #'(2)
-  \partial 4.
-  <<
-     {
-     \override TextScript.outside-staff-priority = #1000
-     s4. ^\markup \italic "(sounds an octave higher than written)" }
-     \\
-     {
-     \colorNotes #(rgb-color 0 0.6 0)
-     {
-       \greenText
-       \once \override TextScript.X-offset = #-8.0
-         g8 \p _\markup \italic {violins} g a
-       bes4 s
-       s8 fis a bes
-       c4 s4
-       s8 fis,8 a bes
-       c4 s4
-       s8 g bes c
-       d4 s }
-       s8 \blackText g, _\markup \italic "cresc." bes c
-     }
-     \\
-     \colorNotes #(rgb-color 0 0 0.8)
-      { s4.
-       s8 \blueText g ^\markup \italic "woodwinds" a bes
-       c4 s
-       s8 fis, a bes
-       c4 s
-       s8 a bes c
-       d4 s
-       s8 g, bes c
-       d4 s
-     }
-     >>
-     d8 bes c d
-     es \f es es es
-     es es es es
-     es4 r
-
-
+  << { r8 ^\markup \italic { right side up } g g f es2 s2 } \\
+     { s2 r8 _\markup \italic {upside down } es, es f g2 } >>
+  
 }
 
 \score {
