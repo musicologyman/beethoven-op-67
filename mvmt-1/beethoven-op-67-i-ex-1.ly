@@ -1,10 +1,14 @@
 \version "2.22.0"
 \include "../template-1.ly"
 
-#(set! paper-alist (cons '("my size" . (cons (* 2 in) (* .75 in))) paper-alist))
+#(set! paper-alist (cons '("my size" . (cons (* 2.2 in) (* 1.0 in))) paper-alist))
+
+\paper {
+  #(set-paper-size "my size")
+  indent = 0 \in
+}
 
 %#(set-global-staff-size 11)
-
 
 \layout {
   \context {
@@ -23,7 +27,7 @@ right = \relative c'' {
   \once \override TextScript.transparent = ##t
   r8 ^\markup {X} _\markup {X} g \ff [g g] | es2 \fermata
   \stopStaff
-  \s2
+  s2
 }
 
 
