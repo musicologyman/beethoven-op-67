@@ -1,3 +1,4 @@
+\version "2.22.0"
 include "./template-1.ly"
 
 #(set-global-staff-size 15)

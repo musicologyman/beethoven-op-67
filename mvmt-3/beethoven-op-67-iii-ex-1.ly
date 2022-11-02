@@ -1,3 +1,4 @@
+\version "2.22.0"
 \include "../../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 5 in) (* 1 in))) paper-alist))

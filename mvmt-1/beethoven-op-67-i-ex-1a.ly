@@ -1,3 +1,4 @@
+\version "2.22.0"
 \include "../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 2 in) (* 1 in))) paper-alist))
@@ -18,7 +19,7 @@
 }
 
 setBracket = #(define-music-function
-               (parser location direction color thickness)
+               (direction color thickness)
                (integer? color? number?)
                #{
                  \override HorizontalBracket #'bracket-flare = #'( 0 . 0 )

@@ -1,3 +1,4 @@
+\version "2.22.0"
 \include "../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 3.5 in) (* .75 in))) paper-alist))
@@ -16,7 +17,7 @@
 }
 
 colorNotes = #(define-music-function
-               (parser location color notes)
+               (color notes)
                (color? ly:music?)
                #{
                   \override NoteHead #'color = #color
