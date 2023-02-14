@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.24.0"
 
 #(use-modules (guile-user))
 
@@ -29,15 +29,15 @@ global = {
 
 excerpt = \relative c'' {
   \global
-   \override Script #'outside-staff-priority = #300
-   \once \override NoteColumn #'extra-offset = #'(200.0 . 0)
+   \override Script.outside-staff-priority = #300
+   \once \override NoteColumn.extra-offset = #'(200.0 . 0)
    g4
-   \once \override NoteHead #'color = #skipNoteColor
-   \once \override Stem #'color = #skipNoteColor
-   \once \override TextScript #'color = #skipNoteColor
-   \once \override TextScript #'rotation = #'(45 0 0)
-   \once \override TextScript #'Y-offset = #9
-   \once \override TextScript #'self-alignment-X = #0
+   \once \override NoteHead.color = #skipNoteColor
+   \once \override Stem.color = #skipNoteColor
+   \once \override TextScript.color = #skipNoteColor
+   \once \override TextScript.rotation = #'(45 0 0)
+   \once \override TextScript.Y-offset = #9
+   \once \override TextScript.self-alignment-X = #0
    f
    ^\markup \center-column \italic { "skip" "this pitch" }
    es

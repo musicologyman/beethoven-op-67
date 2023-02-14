@@ -1,5 +1,5 @@
-\version "2.22.0"
-\include "../../template-1.ly"
+\version "2.24.0"
+\include "../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 3.8 in) (* .8 in))) paper-alist))
 
@@ -32,7 +32,7 @@ right = \relative c' {
   es (des) c8. [c16]
   c \cresc (bes) aes8. [aes16]
   g4 \f \tuplet 3/2 {g16 (aes bes) }
-  aes8 \p 
+  aes8 \p
 }
 
 \score {

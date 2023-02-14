@@ -1,5 +1,5 @@
-\version "2.22.0"
-\include "../../template-1.ly"
+\version "2.24.0"
+\include "../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 7 in) (* 1.5 in))) paper-alist))
 
@@ -41,7 +41,7 @@ right = \relative c {
   \set Timing.beatStructure = 1,1,1
   \once \override TextScript.X-offset = #2.5
   \once \override TextScript.padding = #1
-  es32 \p _\markup \italic { dolce } ^\markup \italic { violas and cellos } 
+  es32 \p _\markup \italic { dolce } ^\markup \italic { violas and cellos }
     (g aes bes)
   c (bes aes g aes bes aes g aes bes c aes)
   f (g f e f a bes a bes c des c)

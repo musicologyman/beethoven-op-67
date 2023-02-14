@@ -1,5 +1,5 @@
-\version "2.22.0"
-\include "../../template-1.ly"
+\version "2.24.0"
+\include "../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 7 in) (* 1 in))) paper-alist))
 
@@ -39,7 +39,7 @@ right = \relative c {
   \set Timing.beamExceptions = #'()
   \set Timing.baseMoment = #(ly:make-moment 1/8)
   \set Timing.beatStructure = #'(3)
- 
+
   es16. \p _\markup \italic { dolce } ^\markup \italic { violas and cellos } (aes32)
   c8-. c16. (bes32 aes16. c32)
   f,8 ~ f16. [(a32 bes16. c32)]

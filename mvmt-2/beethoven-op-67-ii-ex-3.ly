@@ -1,5 +1,5 @@
-\version "2.22.0"
-\include "../../template-1.ly"
+\version "2.24.0"
+\include "../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 4 in) (* 1.5 in))) paper-alist))
 
@@ -43,10 +43,10 @@ excerpt = \relative c' {
       \repeat unfold 2 {
         s8
         \once \override TextScript.Y-offset = #-6.0
-        \override NoteHead #'transparent = ##t
-        \override Stem #'transparent = ##t
-        \override Beam #'transparent = ##t
-        \override TextScript #'transparent = ##t
+        \override NoteHead.transparent = ##t
+        \override Stem.transparent = ##t
+        \override Beam.transparent = ##t
+        \override TextScript.transparent = ##t
         c _\markup { \center-column \italic { "Three short notes" "and a long note"} } c c
         c4 }
     }

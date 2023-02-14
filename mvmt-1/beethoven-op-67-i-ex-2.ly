@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.24.0"
 \include "../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 4 in) (* 1 in))) paper-alist))
@@ -25,7 +25,7 @@ right = \relative c'' {
   \global
   \setAnalysisBracket #blue
   \override HorizontalBracket.padding = #2.0
-  \override HorizontalBracket #'to-barline = ##t
+  \override HorizontalBracket.to-barline = ##t
   r8 g8 \startGroup \ff [g g] | es2 \fermata \stopGroup
   r8 f \startGroup [f f] | d2 ~ d2 \fermata \stopGroup 
   \stopStaff

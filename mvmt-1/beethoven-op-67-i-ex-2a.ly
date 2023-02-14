@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.24.0"
 \include "../template-1.ly"
 
 #(set! paper-alist (cons '("my size" . (cons (* 3.5 in) (* .75 in))) paper-alist))
@@ -20,19 +20,19 @@ colorNotes = #(define-music-function
                (color notes)
                (color? ly:music?)
                #{
-                  \override NoteHead #'color = #color
-                  \override Stem #'color = #color
-                  \override Beam #'color = #color
-                  \override BarLine #'color = #color
-                  \override Script #'color = #color
-                  \override Tie #'color = #color
+                  \override NoteHead.color = #color
+                  \override Stem.color = #color
+                  \override Beam.color = #color
+                  \override BarLine.color = #color
+                  \override Script.color = #color
+                  \override Tie.color = #color
                   #notes
-                  \revert NoteHead #'color
-                  \revert Stem #'color
-                  \revert Beam #'color
-                  \revert BarLine #'color
-                  \revert Script #'color
-                  \revert Tie #'color
+                  \revert NoteHead.color
+                  \revert Stem.color
+                  \revert Beam.color
+                  \revert BarLine.color
+                  \revert Script.color
+                  \revert Tie.color
                #})
 
 global = {

@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.24.0"
 
 \include "../../lilypond-page-sizes/paper-sizes.ily"
 
@@ -25,7 +25,7 @@ closing = \relative g'' {
    e d d d |
    c'2. \sf b4 |
    a aes \piuFDynamic aes aes |
-   \once \override TextScript #'Y-offset = #-0.5
+   \once \override TextScript.Y-offset = #-0.5
    \stopStaff s32 -\markup \italic "etc."
 }
 
