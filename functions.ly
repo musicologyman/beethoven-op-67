@@ -9,20 +9,9 @@
   \context {
     \Score \remove "Bar_number_engraver"
   }
-}
-
-\layout {
   \context {
     \Staff \RemoveEmptyStaves
   }
-}
-
-global = {
-  \key a \major
-  \time 4/4
-}
-
-\layout {
   \context {
     \Voice
     \consists "Horizontal_bracket_engraver"
